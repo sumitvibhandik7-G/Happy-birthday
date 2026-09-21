@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday GAURI ❤️!</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <audio id="bgMusic" src="song.mp3" loop></audio>
+
+  <!-- HOME SECTION -->
+  <section id="home" class="page active">
+    <h1>🎉 Happy Birthday, <br>[ Gauri ❤️🥰] 🎉</h1>
+    <p>This little website is just for you. Tap around and see what's inside 💕</p>
+    <div class="menu">
+      <button onclick="showPage('message')">💌 My Message</button>
+      <button onclick="showPage('memories')">📷 Your Picture</button>
+      <button onclick="showPage('wish')">✨ Make a Wish</button>
+    </div>
+  </section>
+
+  <!-- MESSAGE SECTION -->
+  <section id="message" class="page">
+    <h1>My Message to You 💌</h1>
+    <p>Today’s date is very, very special to me. ❤️
+I know you may not really like your birthday, maybe because of everything you’ve been through and everything you’re still going through. But for me, 22nd September will always be special, because it’s the day you came into my life.
+And honestly, I feel like you are a gift Bappa gave me. I’m genuinely, from the bottom of my heart, grateful to God that you came into my life. ♾️
+I always pray that Bappa fills your heart and soul with endless happiness,  joy,peace, strength, and all the beautiful things you deserve. 💖
+HAPPY BIRTHDAY, GAURI! 🎂❤️
+Love you forever. ♾️😘</p>
+    <button onclick="showPage('home')">🏠 Back Home</button>
+  </section>
+
+  <!-- MEMORIES SECTION -->
+  <section id="memories" class="page">
+    <h1>You're so beautiful 😍</h1>
+    <img id="slideshow" class="photo" src="her-photo.png" alt="Her photo">
+    <p>Every time I see your pictures, I smile.</p>
+    <button onclick="showPage('home')">🏠 Back Home</button>
+  </section>
+
+  <!-- WISH SECTION -->
+  <section id="wish" class="page">
+    <h1>Close your eyes and make a wish 🌠</h1>
+    <p>Whatever you wish for, I hope it comes true — and if I am part of your wish, I am really grateful. And if I am not, that's okay too.
+But I wish, Bappa always and forever keep you happy.🤞🥹♾️</p>
+    <button onclick="showPage('home')">🏠 Back Home</button>
+  </section>
+
+<script>
+  const music = document.getElementById('bgMusic');
+  let started = false;
+
+  document.addEventListener('click', () => {
+    if (!started) {
+      music.play();
+      started = true;
+    }
+  });
+
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  const photos = ["her-photo.png","her-photo1.png","her-photo2.png","her-photo3.png","her-photo4.png","her-photo5.png","her-photo6.png","her-photo7.png","her-photo8.png","her-photo9.png","her-photo10.png","her-photo11.png"];
+  
+  let photoIndex = 0;
+  const slideshowImg = document.getElementById('slideshow');
+
+  setInterval(() => {
+    slideshowImg.style.opacity = 0;
+    setTimeout(() => {
+      photoIndex = (photoIndex + 1) % photos.length;
+      slideshowImg.src = photos[photoIndex];
+      slideshowImg.style.opacity = 1;
+    }, 800);
+  }, 2500);
+</script>
+
+</body>
+</html>
